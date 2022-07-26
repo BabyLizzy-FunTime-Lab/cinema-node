@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/BabyLizzy-FunTime-Lab/cinema-node#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1"
   }
 }

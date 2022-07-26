@@ -306,8 +306,24 @@ elementID("reserve-btn").addEventListener("click", function(event) {
         seats: availableSeats
     };
     console.log(bookingdata);
+    senddata(random_id, selectedDate, selectedMovie, availableSeats);
 })
 
+function senddata(id_input, date_input, movie_input, seats_input) {
+    const xhttp = new XMLHttpRequest();
+    let fd = new FormData();
+    fd.append("id", id_input);
+    fd.append("date", date_input);
+    fd.append("movie", movie_input);
+    fd.append("seats", seats_input);
+
+    xhttp.onload = function() {
+        alert(this.responseText);
+    }
+
+    xhttp.open("POST", "/newbooking");
+    xhttp.send(fd); 
+}
 
 //////////////////////////////////////////////////////////
 ///////////////////// Theaterrooms ///////////////////////
