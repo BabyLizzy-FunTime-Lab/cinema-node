@@ -17,8 +17,15 @@ app.post('/newbooking', function(req, res) {
     let bookingArray = JSON.parse(bookingJSON);
     bookingArray.push(newBooking);
     bookingJSON = JSON.stringify(bookingArray);
-    fs.writeFileSync("data/data.txt", bookingJSON, "utf-8"); 
-    res.send("Booking successfull");
+    fs.writeFile("data/data.txt", bookingJSON, "utf-8", (err) => {
+        if (err) {
+            console.log("Booking data save, failed")
+            res.send("Booking Failed")
+        } else {
+            console.log("Booking data saved id: " + newBooking.id);
+            res.send("Booking successfull id: " + newBooking.id);
+        }
+    }); 
 })
 
 app.listen(port, () => console.log(`HTML5 & CSS3 app listening on port ${port}!`));
