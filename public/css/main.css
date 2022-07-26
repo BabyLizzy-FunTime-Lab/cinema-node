@@ -1,0 +1,100 @@
+:root {
+	/*font*/
+	--font-nav: 'Orbitron';
+	--font-banner: 'Orbitron';
+	--font-mainheaders: 'Orbitron';
+	--font-headers: 'Tomorrow';
+	--font-text: 'Roboto';
+	/*colors*/
+	--color-whitesmoke: rgb(245,245,245);
+	--color-dodgerblue: rgb(30,144,255);
+	--color-lightgrey: rgb(128, 128, 128);
+	--color-seats-taken: rgb(255, 204, 220);
+	--color-seats-open: rgb(128, 255, 128);
+	--color-seats-advised: rgb(102, 163, 255);
+	/* images */
+	/* --image-banner: '.../image/Banner.jpg'; */
+}
+body {
+	background-color: var(--color-whitesmoke);
+}
+#pageheader {
+	font-family: var(--font-mainheaders);
+	font-size: 1.5em;
+	text-align: center;
+	/* height: 100vh; */
+	/* background-image: var(--image-banner); */
+}
+#booking-container {
+	font-family: var(--font-text);
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+#booking-container header h2 {
+	font-family: var(--font-mainheaders);
+}
+#booking-container header h3 {
+	font-family: var(--font-headers);
+}
+#movie-radio-container {
+	text-align: left;
+	width: fit-content;
+	width: -moz-fit-content;
+	margin: auto;
+	padding: 0 0 .5em 0;
+}
+#groupsize-container {
+	padding: .5em 0 1em 0;
+}
+#theaterroom-container {
+	margin: 0 0 4em 0;
+}
+.seatTaken, #taken {
+	background-color: var(--color-seats-taken);
+}
+.seatOpen, #open {
+	background-color: var(--color-seats-open);
+}
+.seatAdvised, #advised {
+	background-color: var(--color-seats-advised);
+}
+#seats-overview {
+	background-color: var(--color-lightgrey);
+	min-height: 15em;
+	padding: .5em 0 .5em 0;
+}
+#seat-colors {
+	display: flex;
+	justify-content: center;
+	padding: .3em 0 .3em 0;
+}
+#seat-colors div {
+	width: 6em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#seat-colors p {
+	margin: .2em;
+}
+/*#theater-room {
+	display: flex;
+	align-content: space-around;
+	width: inherit;
+	height: inherit;
+}*/
+.row {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-evenly;
+	padding: .5em 0 .5em 0;
+}
+.seat {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2em;
+	height: 2em;
+	border: 2px solid var(--color-whitesmoke);
+}
