@@ -297,33 +297,30 @@ elementID("book-btn").addEventListener("click", function(event) {
         }
     );
 })
-elementID("reserve-btn").addEventListener("click", function(event) {
-    let random_id = Math.floor(Math.random() * 10000 + 1);
-    let bookingdata = {
-        booking_id: random_id,
-        date: selectedDate,
-        movie: selectedMovie,
-        seats: availableSeats
-    };
-    console.log(bookingdata);
-    senddata(random_id, selectedDate, selectedMovie, availableSeats);
-})
-
-function senddata(id_input, date_input, movie_input, seats_input) {
+// Ajax function that sends booking data.
+function senddata(data) {
     const xhttp = new XMLHttpRequest();
-    let fd = new FormData();
-    fd.append("id", id_input);
-    fd.append("date", date_input);
-    fd.append("movie", movie_input);
-    fd.append("seats", seats_input);
+    xhttp.open("POST", "/newbooking", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
 
     xhttp.onload = function() {
         alert(this.responseText);
     }
 
-    xhttp.open("POST", "/newbooking");
-    xhttp.send(fd); 
+    xhttp.send(JSON.stringify(data)); 
 }
+elementID("reserve-btn").addEventListener("click", function(event) {
+    let random_id = Math.floor(Math.random() * 10000 + 1);
+    let bookingdata = {
+        id: random_id,
+        date: selectedDate,
+        movie: selectedMovie,
+        seats: availableSeats
+    };
+    senddata(bookingdata);
+})
+
+
 
 //////////////////////////////////////////////////////////
 ///////////////////// Theaterrooms ///////////////////////
