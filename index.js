@@ -19,8 +19,8 @@ app.post('/newbooking', function(req, res) {
     bookingJSON = JSON.stringify(bookingArray);
     fs.writeFile("data/data.txt", bookingJSON, "utf-8", (err) => {
         if (err) {
-            console.log("Booking data save, failed")
-            res.send("Booking Failed")
+            console.log("Booking data save, failed");
+            res.send("Booking Failed");
         } else {
             console.log("Booking data saved id: " + newBooking.id);
             res.send("Booking successfull id: " + newBooking.id);
